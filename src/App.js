@@ -6,7 +6,6 @@ function App() {
   const [seconds, setSeconds] = useState(0);
   const [startTimer, setStartTimer] = useState(-1);
   const [settingState, setSettingState] = useState("disactive");
-  const [alerting, setAlerting] = useState('Your Time is Over!!!')
 
   const stopCounter = () =>{   
     setSeconds(0)
@@ -20,7 +19,7 @@ function App() {
 
   if(minutes === -1 && seconds === 59){
     document.querySelector('.ring').style.stroke = "#900A0A"
-    alert(alerting)
+    alert('Your Time is Over!!!')
   }
 
   const startCounter = () =>{
@@ -46,7 +45,7 @@ function App() {
 
   useEffect(()=>()=>{
     clearTimeout(startTimer);
-  },[])
+  },[startTimer])
 
   const settings = () => {
     setSettingState("active")
